@@ -2,7 +2,7 @@ from receipt_processor.util.calculate_points import calculate_points
 from receipt_processor.util.utils import get_unique_id
 import logging
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 receipts = {}
 points = {}
@@ -23,12 +23,13 @@ def get_receipt_points_by_id(id):
         return {"Error": "No receipt found for that id"}, 404
 
     if id in points:
-        return points[id]
+        curr_points = points[id]
+    else:
+        curr_points = calculate_points(res)
+        points[id] = curr_points
 
-    curr_points = calculate_points(res)
-
-    points[id] = curr_points
-    return {"points": curr_points}, 200
+    response = {"points": curr_points}
+    return response, 200
 
 def post_receipt(body):
     """
@@ -39,4 +40,5 @@ def post_receipt(body):
     receipt_id = get_unique_id()
     receipts[receipt_id] = body
     response = {"id": receipt_id}
+    print(response)
     return response, 200
