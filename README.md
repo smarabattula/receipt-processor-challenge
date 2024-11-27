@@ -1,9 +1,12 @@
 # Receipt Processor API
 
+## Assumptions made:
+1. In the points calculation, I've assumed the time constraint **`after 2:00 PM and before 4:00 PM`** as from 2:00 PM to 3:59 PM (inclusive of 2:00 PM and exclusive of 4:00 PM)
+
 ## Steps to Run the Application
 1. Clone the github repo into your machine
 2. Ensure **Docker Engine** (or **Docker Desktop**) is installed on your machine
-3. Build the Docker image:
+3. Build the Docker image bundled with all dependencies:
    ```bash
    docker build -t receipt_processor .
 4. Run the Docker container (Application runs on port 1777 in the container):
