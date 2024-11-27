@@ -19,5 +19,6 @@
 - Docker run cmd: `docker run -p 2500:1777 receipt_processor`
 - Example URL: `http://localhost:2500/`
 - POST request : `http://localhost:2500/receipts/process`
+![image](https://github.com/user-attachments/assets/8ea6bac3-3c70-475a-a3d4-4850609e7d35)
 - GET request  : `http://localhost:2500/<id>/points`
-
+![image](https://github.com/user-attachments/assets/274bafa9-1506-43fb-bb25-d3985800b2a9)
