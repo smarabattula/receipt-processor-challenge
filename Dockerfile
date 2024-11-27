@@ -12,6 +12,6 @@ COPY receipt_processor /app/receipt_processor
 COPY app.py /app/app.py
 COPY api.yml /app/api.yml
 
-EXPOSE 5000
+EXPOSE 1777
 
 CMD ["python", "app.py"]
