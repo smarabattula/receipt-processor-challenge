@@ -6,7 +6,7 @@ info:
 paths:
     /receipts/process:
         post:
-            operationId: receipt_processor.handlers.handler_code.post_receipt
+            operationId: post_receipt
             summary: Submits a receipt for processing
             description: Submits a receipt for processing
             requestBody:
@@ -36,7 +36,7 @@ paths:
         get:
             summary: Returns the points awarded for the receipt
             description: Returns the points awarded for the receipt
-            operationId: receipt_processor.handlers.handler_code.get_receipt_points_by_id
+            operationId: get_receipt_points_by_id
             parameters:
                 - name: id
                   in: path
