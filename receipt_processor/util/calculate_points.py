@@ -10,8 +10,7 @@ def get_items(items: List[Dict[str, str]]) -> Dict[str, List[Any]]:
         item_desc = item["shortDescription"].strip()
         item_price = float(item["price"])
         if item_desc not in hash_items:
-            hash_items[item_desc] = [0, item_price]  # [count, price]
-        hash_items[item_desc][0] += 1
+            hash_items[item_desc] = item_price  # [price]
     return hash_items
 
 def get_retailer_points(retailer_name: str) -> int:
@@ -43,7 +42,7 @@ def get_item_points(items: List[Dict[str, str]]) -> int:
     """
     points = 5 * (len(items) // 2)  # Points for every two items
     hash_items = get_items(items)
-    for desc, (_, price) in hash_items.items():
+    for desc, price in hash_items.items():
         if len(desc) % 3 == 0:
             points += math.ceil(0.2 * price)
     return points
